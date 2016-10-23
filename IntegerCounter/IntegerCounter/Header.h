@@ -1,29 +1,37 @@
-#include <string>;
-#include <vector>;
-#include <sstream>;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
 #pragma once
-class LineItem {	
-		int key;
-		double input[];		
-public:
-	void setKey(int);
-	void setDoubles(char[]);
-};
 
-void LineItem::setKey(int k) {
-	key = k;
-}
-void LineItem::setDoubles(char* i) {
+
+class LineItem {	
+private:
+		int key;
+		double input[];	
+
+
+public:
+	LineItem(char* input);
+
+	int getKey();
+	double* getIntegers();
+};
 	
-	vector<double> vect;
-	stringstream ss(i);
+LineItem::LineItem (char* input) {
+	
+	std::vector< double > vect;
+	std::stringstream ss(input);
 
 	double j;
+	int i;
+	ss >> i;
+	key = i;
 
-	while (ss >> i) {
+	while (ss >> j) {
 		vect.push_back(j);
 
 		if (ss.peek() == '"' || ss.peek() == ',' || ss.peek() == ' ')
-			ss.ignore;
+			ss.ignore();
 	}	
 }
