@@ -8,20 +8,20 @@
 class LineItem {	
 private:
 		int key;
-		double input[];	
+		std::vector <double> input;	
 
 
 public:
-	LineItem(char* input);
+	LineItem(std::string);
 
 	int getKey();
-	double* getIntegers();
+	std::vector<double> getIntegers();
 };
 	
-LineItem::LineItem (char* input) {
+LineItem::LineItem (std::string in) {
 	
 	std::vector< double > vect;
-	std::stringstream ss(input);
+	std::stringstream ss(in);
 
 	double j;
 	int i;
@@ -34,4 +34,12 @@ LineItem::LineItem (char* input) {
 		if (ss.peek() == '"' || ss.peek() == ',' || ss.peek() == ' ')
 			ss.ignore();
 	}	
+	input = vect;
+}
+int LineItem::getKey() {
+	return key;
+}
+
+std::vector<double> LineItem::getIntegers() {
+	return input;
 }
