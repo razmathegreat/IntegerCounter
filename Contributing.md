@@ -26,8 +26,10 @@ As an example, here is how the FrontTest is used in the singleIncrement.h file:
 
 This method should run your algoritm for the first set of values in this sequence.  	
 In singleIncrementFrontTest(std::vector<double> sequence) we are testing the algorithm x+1=y
+
 	x is equal to the first value of sequence:
 			double x = sequence[0];
+			
 	y is equal to the second value of sequence:
 			double y = sequence[1];
 
@@ -43,8 +45,10 @@ As an example, here is how the BackTest is used in the singleIncrement.h file:
 	bool singleIncrementBackTest(std::vector<double> sequence)
 
 This method should run your algoritm for the last set of values in this sequence.  	In singleIncrementBackTest(std::vector<double> sequence) we are testing the algorithm x+1=y
+
 	y is equal to the last value of sequence:
 			double y = sequence[sequence.size()-1];
+			
 	x is equal to the second to last value of sequence:
 			double x = sequence[sequence.size()-2];
 
@@ -60,9 +64,13 @@ As an example, here is how the Answer is used in the singleIncrement.h file:
 
 	double singleIncrementAnswer(std::vector<double> sequence)
 
-This method should run your algoritm for the last set of values in this sequence.  	In singleIncrementAnswer(std::vector<double> sequence) we are testing the algorithm x+1=y
+This method should run your algoritm for the last set of values in this sequence.  	
+
+In singleIncrementAnswer(std::vector<double> sequence) we are testing the algorithm x+1=y
+
 	x is the last value of sequence:
 			double x = sequence.back();
+			
 	y is the answer we are trying to find:
 			double y = x +1;
 
