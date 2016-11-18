@@ -8,30 +8,33 @@ using namespace std;
 
 
 int main() {
-	int i=0;
+	int i = 0;
 	string line;
 	vector<LineItem> vect;
 	ifstream file("./resources/test.csv");
 	if (file.is_open()) {
 		while (i < 100){
 			getline(file, line);
-			LineItem Test(line);
-			vect.push_back(Test);
-			
+			if (i != 0){
+				LineItem Test(line);
+				vect.push_back(Test);
+				int j = 0;
+			}
+
 			i++;
 		}
 		file.close();
-		/*if (singleIncrementFrontTest(vect.at(1).getIntegers())) {
-			cout << "Front true \n";
+		if (singleIncrementFrontTest(vect.at(12).getIntegers())) {
+		cout << "Front true \n";
 		}
 		else {
-			cout << "Front false \n";
+		cout << "Front false \n";
 		}
-		cout << line << '\n';*/
+		cout << line << '\n';
 	}
 	else cout << "Unable to open file";
-	cin >> i;
-	
-	
-	return 0; 
+
+	writeFile(vect);
+
+	return 0;
 }

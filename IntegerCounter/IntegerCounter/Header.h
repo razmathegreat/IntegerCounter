@@ -1,10 +1,12 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 #pragma once
 
-//This is testing
+
 class LineItem {	
 private:
 		int key;
@@ -12,6 +14,7 @@ private:
 
 
 public:
+	LineItem();
 	LineItem(std::string);
 
 	int getKey();
@@ -21,21 +24,55 @@ public:
 LineItem::LineItem (std::string in) {
 	
 	std::vector< double > vect;
-	std::stringstream ss(in);
+	//std::stringstream ss(in);
 
+	std::string delimiter = ",";
+	size_t pos = 0;
+	std:: string token;
 	double j;
-	int i;
-	ss >> i;
-	key = i;
+	int i=0;
+	//ss >> i;
+	//key = i;
 
-	while (ss >> j) {
+	//Remove the quotation marks
+	in.erase(
+		remove(in.begin(), in.end(), '\"'),
+		in.end()
+		);
+
+	while ((pos = in.find(delimiter)) != std::string::npos)
+	{
+		token = in.substr(0, pos);
+		in.erase(0, pos + delimiter.length());
+		char* tarray = new char[token.length() + 1];
+		strcpy(tarray, token.c_str());
+		if (i == 0){
+			key = stoi(token);
+		}
+		else{
+			vect.push_back(stod(token));
+		}
+		i++;
+	}
+
+	/*while (ss >> j) {
 		vect.push_back(j);
 
 		if (ss.peek() == '"' || ss.peek() == ',' || ss.peek() == ' ')
 			ss.ignore();
-	}	
+	}	*/
 	input = vect;
 }
+
+bool writeFile(std::vector<LineItem> vect)
+{
+	std::ofstream out;
+	out.open("/resources/Prediction.csv");
+	out << "Id,Last,\n";
+	out.close();
+	return true;
+}
+
 int LineItem::getKey() {
 	return key;
 }
