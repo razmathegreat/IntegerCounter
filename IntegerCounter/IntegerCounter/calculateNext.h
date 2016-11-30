@@ -8,6 +8,7 @@ in order to use one combined test method in our source file */
 #include "Algorithms\alternating.h"
 #include "Algorithms\geometric.h"
 #include "Algorithms\Fibonacci.h"
+#include "Algorithms\squareIncrement.h"
 using namespace std;
 
 double calculateNextInSequence(std::vector<double> sequence)
@@ -25,6 +26,10 @@ double calculateNextInSequence(std::vector<double> sequence)
 	//test Fibonacci.h
 	if (fibonacciFrontTest(sequence) && fibonacciBackTest(sequence)) {
 		next = fibonacciAnswer(sequence);
+	}
+	//test squareIncrement.h
+	if (squareIncrementFrontTest(sequence) && squareIncrementBackTest(sequence)) {
+		next = squareIncrementAnswer(sequence);
 	}
 	return next;
 }
