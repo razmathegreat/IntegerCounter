@@ -1,7 +1,7 @@
 Contributing 
 ============================
 
-We are always looking for contributions to this project.  Contributing is easy, all we ask that each algorithm you contribute our template.
+We are always looking for contributions to this project.  Contributing is easy, fork this repo, make your contribution, and create a pull request for this project.  All we ask that each algorithm you contribute follows our template.
 
 The Template
 ============================
