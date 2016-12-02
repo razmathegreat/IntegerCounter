@@ -14,3 +14,9 @@ bool geometricTest(std::vector<double> vect){
 	}
 	return true;
 }
+
+double geometricanswer(std::vector<double> vect)
+{
+	double c = vect[1] / vect[0];
+	return c*vect[vect.size() - 1];
+}

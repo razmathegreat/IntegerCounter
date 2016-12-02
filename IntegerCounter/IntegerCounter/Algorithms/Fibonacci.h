@@ -10,7 +10,7 @@ Fibonacci pattern is used if one number in sequence is equal to the previous two
 bool fibonacciFrontTest(std::vector<double> sequence) {
 	double x = sequence[0];
 	double y = sequence[1];
-	double z = sequence[2]
+	double z = sequence[2];
 	double checker = x + y;
 	if (z == checker) {
 		return true;
