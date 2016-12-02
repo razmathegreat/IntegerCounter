@@ -67,8 +67,10 @@ LineItem::LineItem (std::string in) {
 bool writeFile(std::vector<LineItem> vect)
 {
 	std::ofstream out;
-	out.open("/resources/Prediction.csv");
-	out << "Id,Last,\n";
+	out.open("./resources/Prediction.csv");
+	out << "Id,Last\n";
+	out << "new line";
+	out.clear();
 	out.close();
 	return true;
 }
