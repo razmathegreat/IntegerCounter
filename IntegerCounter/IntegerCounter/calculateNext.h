@@ -1,15 +1,16 @@
 /*Calculation will be the location where we pull all of the algorithms 
 in order to use one combined test method in our source file */
-#pragma once
 #include <string>
 #include <vector>
-#include "Header.h"
 #include "Algorithms\singleIncrement.h"
 #include "Algorithms\alternating.h"
 #include "Algorithms\geometric.h"
 #include "Algorithms\Fibonacci.h"
 #include "Algorithms\squareIncrement.h"
 #include "Algorithms\cubeIncrement.h"
+#include "Algorithms\polynomial.h"
+#pragma once
+
 using namespace std;
 
 double calculateNextInSequence(std::vector<double> sequence)
@@ -22,7 +23,7 @@ double calculateNextInSequence(std::vector<double> sequence)
 	}
 	//test singleIncrement.h
 	if (singleIncrementFrontTest(sequence) && singleIncrementBackTest(sequence)) {
-		next = singleIncrementAnswer(sequence);
+		next = singeIncrementAnswer(sequence);
 	}
 	//test Fibonacci.h
 	if (fibonacciFrontTest(sequence) && fibonacciBackTest(sequence)) {
@@ -36,5 +37,21 @@ double calculateNextInSequence(std::vector<double> sequence)
 	if (cubeIncrementFrontTest(sequence) && cubeIncrementBackTest(sequence)) {
 		next = cubeIncrementAnswer(sequence);
 	}
+	//test geometric
+	if (geometricTest(sequence)){
+		next = geometricanswer(sequence);
+	}
+	//test first degree polynomial
+	if (degreeone(sequence)){
+		next = degreeoneanswer(sequence);
+	}
+	//test second degree polynomial
+	if (degreetwo(sequence)){
+		next = degreetwoanswer(sequence);
+	}
+	//test third degree polynomial
+	if (degreethree(sequence)){
+		next = degreethreeanswer(sequence);
+	}
 	return next;
-}
+};
