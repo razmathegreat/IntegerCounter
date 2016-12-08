@@ -8,6 +8,10 @@ Fibonacci pattern is used if one number in sequence is equal to the previous two
 */
 
 bool fibonacciFrontTest(std::vector<double> sequence) {
+	if (sequence.size() < 3)
+	{
+		return false;
+	}
 	double x = sequence[0];
 	double y = sequence[1];
 	double z = sequence[2];
@@ -20,6 +24,10 @@ bool fibonacciFrontTest(std::vector<double> sequence) {
 }
 
 bool fibonacciBackTest(std::vector<double> sequence) {
+	if (sequence.size() < 3)
+	{
+		return false;
+	}
 	double x = sequence[sequence.size() - 3];
 	double y = sequence[sequence.size() - 2];
 	double z = sequence[sequence.size() - 1];

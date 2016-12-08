@@ -6,6 +6,10 @@
 //Functions of the form ax+b
 bool degreeone(std::vector<double> vect){
 	int i = 0;
+	if (vect.size() < 2)
+	{
+		return false;
+	}
 	double c = vect[1] - vect[0];
 	while (i < vect.size() - 1){
 		double d = vect[i + 1] - vect[i];
@@ -20,6 +24,10 @@ bool degreeone(std::vector<double> vect){
 //Functions of the form a(n^2)+bn+c
 bool degreetwo(std::vector<double> vect){
 	int i = 0;
+	if (vect.size() < 3)
+	{
+		return false;
+	}
 	double c = vect[2] - 2*vect[1]+vect[0];
 	while (i < vect.size() - 2){
 		double d = vect[i+2] - 2 * vect[i+1] + vect[i];
@@ -33,6 +41,10 @@ bool degreetwo(std::vector<double> vect){
 
 bool degreethree(std::vector<double> vect){
 	int i = 0;
+	if (vect.size() < 4)
+	{
+		return false;
+	}
 	double c = vect[3] - 3 * vect[2] + 3 * vect[1] - vect[0];
 	while (i < vect.size() - 3){
 		double d = vect[i+3] - 3 * vect[i+2] + 3 * vect[i+1] -vect[i];;

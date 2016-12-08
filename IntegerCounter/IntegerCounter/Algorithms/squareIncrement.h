@@ -8,6 +8,10 @@ squareIncrement used to calculate the following pattern:
 */
 
 bool squareIncrementFrontTest(std::vector<double> sequence) {
+	if (sequence.size() < 2)
+	{
+		return false;
+	}
 	double x = sequence[0];
 	double y = sequence[1];
 	//Take the square root of the first item add one to it and compare it to the square root of the second item
@@ -20,6 +24,10 @@ bool squareIncrementFrontTest(std::vector<double> sequence) {
 }
 
 bool squareIncrementBackTest(std::vector<double> sequence) {
+	if (sequence.size() < 2)
+	{
+		return false;
+	}
 	double x = sequence[sequence.size() - 2];
 	double y = sequence[sequence.size() - 1];
 	double checker = sqrt(x) + 1;

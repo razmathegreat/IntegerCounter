@@ -7,6 +7,10 @@ X+1=Y
 */
 
 bool singleIncrementFrontTest(std::vector<double> sequence) {
+	if (sequence.size() < 2)
+	{
+		return false;
+	}
 	double x = sequence[0];
 	double y = sequence[1];
 	double checker = x + 1;
@@ -18,6 +22,10 @@ bool singleIncrementFrontTest(std::vector<double> sequence) {
 }
 
 bool singleIncrementBackTest(std::vector<double> sequence) {
+	if (sequence.size() < 2)
+	{
+		return false;
+	}
 	double x = sequence[sequence.size()-2];
 	double y = sequence[sequence.size()-1];
 	double checker = x + 1;

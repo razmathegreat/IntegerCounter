@@ -7,6 +7,9 @@ alternating used to calculate the following pattern:
 */
 
 bool alternatingFrontTest(std::vector<double> sequence) {
+	if (sequence.size() < 4){
+		return false;
+	}
 	double x = sequence[0];
 	double y = sequence[1];
 	double z = sequence[2];
@@ -20,6 +23,9 @@ bool alternatingFrontTest(std::vector<double> sequence) {
 }
 
 bool alternatingBackTest(std::vector<double> sequence) {
+	if (sequence.size() < 4){
+		return false;
+	}
 	double x = sequence[sequence.size() - 4];
 	double y = sequence[sequence.size() - 3];
 	double z = sequence[sequence.size() - 2];
