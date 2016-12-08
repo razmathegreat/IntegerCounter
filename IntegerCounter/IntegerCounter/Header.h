@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include "calculateNext.h"
 #pragma once
 
 
@@ -29,7 +30,6 @@ LineItem::LineItem (std::string in) {
 	std::string delimiter = ",";
 	size_t pos = 0;
 	std:: string token;
-	double j;
 	int i=0;
 	//ss >> i;
 	//key = i;
@@ -54,6 +54,7 @@ LineItem::LineItem (std::string in) {
 		}
 		i++;
 	}
+	vect.push_back(stod(in));
 
 	/*while (ss >> j) {
 		vect.push_back(j);
@@ -62,14 +63,26 @@ LineItem::LineItem (std::string in) {
 			ss.ignore();
 	}	*/
 	input = vect;
-}
+};
 
 bool writeFile(std::vector<LineItem> vect)
 {
 	std::ofstream out;
+	double ans=0;
+	int i = 0;
+	int k = 0;
 	out.open("./resources/Prediction.csv");
 	out << "Id,Last\n";
-	out << "new line";
+	while (i<vect.size())
+	{
+		ans = calculateNextInSequence(vect.at(i).getIntegers());
+		if (ans != -9999999){
+			k++;
+		}
+		out << vect.at(i).getKey()<< ","<<ans<<"\n";
+		i++;
+	}
+	cout << "Found solutions to " << (k * 100) / i << "%" << endl;
 	out.clear();
 	out.close();
 	return true;
