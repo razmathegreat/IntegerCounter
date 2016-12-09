@@ -25,16 +25,11 @@ public:
 LineItem::LineItem (std::string in) {
 	
 	std::vector< double > vect;
-	//std::stringstream ss(in);
 
 	std::string delimiter = ",";
 	size_t pos = 0;
 	std:: string token;
 	int i=0;
-	//ss >> i;
-	//key = i;
-
-	//Remove the quotation marks
 	in.erase(
 		remove(in.begin(), in.end(), '\"'),
 		in.end()
@@ -55,13 +50,6 @@ LineItem::LineItem (std::string in) {
 		i++;
 	}
 	vect.push_back(stod(in));
-
-	/*while (ss >> j) {
-		vect.push_back(j);
-
-		if (ss.peek() == '"' || ss.peek() == ',' || ss.peek() == ' ')
-			ss.ignore();
-	}	*/
 	input = vect;
 };
 
@@ -78,8 +66,14 @@ bool writeFile(std::vector<LineItem> vect)
 		ans = calculateNextInSequence(vect.at(i).getIntegers());
 		if (ans != -9999999){
 			k++;
+			cout <<"Sequence: "<< vect.at(i).getKey() << " Next integer: " << ans << endl;
 		}
-		out << vect.at(i).getKey()<< ","<<ans<<"\n";
+		if (ans != -9999999){
+			out << vect.at(i).getKey() << "," << ans << "\n";
+		}
+		else{
+			out << vect.at(i).getKey() << "," << "Could not find" << "\n";
+		}
 		i++;
 	}
 	cout << "Found solutions to " << (k * 100) / i << "%" << endl;

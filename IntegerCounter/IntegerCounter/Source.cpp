@@ -14,7 +14,7 @@ int main() {
 	vector<LineItem> vect;
 	ifstream file("./resources/test.csv");
 	if (file.is_open()) {
-		while (i<20000){
+		while (i<20001){ //use "file.peek()!=EOF" to check the whole file
 			getline(file, line);
 			if (i != 0){
 				LineItem Test(line);
